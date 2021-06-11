@@ -36,7 +36,7 @@ sleep "$SLEEP_MESSAGE_BEGIN"
 
 
 
-if [[ "$SS_DATABASE_REMOTE" == "true" ]]; then
+if [[ "$SS_DATABASE" == "remote" ]]; then
     echo -e "${YELLOW}Exiting ss-install-mysql-config: Your ss-config indicates a remote database so we will skip MySQL install... ${NOCOLOR}"
     exit 1
 fi
