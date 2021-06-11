@@ -34,6 +34,11 @@ source /var/www/ss-functions
 echo -e "${PURPLE}Running ss-install-nginx-letsencrypt: Reinstalls Lets Encrypt SSL to Nginx (idempotent)... ${NOCOLOR}"
 sleep "$SLEEP_MESSAGE_BEGIN"
 
+if [[ "$SS_SERVER" == "db" ]]; then
+    echo -e "${YELLOW}Exiting ss-install-nginx-packages: Your ss-config indicates a database server so we will skip Nginx install... ${NOCOLOR}"
+    exit 1
+fi
+
 ####################################################################################################
 #### SS-Install-Nginx-SSL: Install Preferred SSL Certificate (Per SS-Config) #######################
 ####################################################################################################
