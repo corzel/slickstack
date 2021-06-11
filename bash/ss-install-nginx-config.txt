@@ -44,6 +44,11 @@ source /var/www/ss-functions
 echo -e "${PURPLE}Running ss-install-nginx-config: Reinstalls the Nginx module config files based on ss-config (idempotent)... ${NOCOLOR}"
 sleep "$SLEEP_MESSAGE_BEGIN"
 
+if [[ "$SS_SERVER" == "db" ]]; then
+    echo -e "${YELLOW}Exiting ss-install-nginx-config: Your ss-config indicates a database server so we will skip Nginx install... ${NOCOLOR}"
+    exit 1
+fi
+
 ####################################################################################################
 #### B. SS-Install-Nginx-Config: Cleanup Temporary Files ###########################################
 ####################################################################################################
